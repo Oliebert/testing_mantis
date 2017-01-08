@@ -23,7 +23,7 @@ class JamesHelper:
                                                     # b"Login id:" - выполняем конвертирование в байтовое
             self.write(username + "\n")# вводим имя пользователя
             self.read_until("Password:")
-            self.telnet.write(password + "\n")  # вводим пароль
+            self.write(password + "\n")  # вводим пароль
             self.read_until("Welcome root. HELP for a list of commands") # строка,появляющаяся после успешного входа в систему
 
         def read_until(self, text):

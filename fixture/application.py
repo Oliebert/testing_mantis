@@ -1,6 +1,7 @@
 from selenium import webdriver    #.firefox.webdriver import WebDriver
 from fixture.session import SessionHelper
 from fixture.project import ProjectHelper
+from fixture.james import JamesHelper
 
 class Application:
 
@@ -18,6 +19,8 @@ class Application:
         self.session = SessionHelper(self)
 
         self.project = ProjectHelper(self)
+
+        self.james = JamesHelper(self)
 
         self.base_url = base_url
                                                     #driver wird ein einziges Mal inizilisiert bei der Erschaffung einer Fixture.

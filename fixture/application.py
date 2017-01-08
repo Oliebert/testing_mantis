@@ -2,10 +2,12 @@ from selenium import webdriver    #.firefox.webdriver import WebDriver
 from fixture.session import SessionHelper
 from fixture.project import ProjectHelper
 from fixture.james import JamesHelper
+from fixture.signup import SignupHelper
+from fixture.mail import MailHelper
 
 class Application:
 
-    def __init__(self, browser, base_url):
+    def __init__(self, browser, config):
 
         if browser == "firefox":
             self.wd = webdriver.Firefox()#firefox_binary="C:\\Program Files\\Mozilla Firefox\\firefox.exe"
@@ -22,12 +24,15 @@ class Application:
 
         self.james = JamesHelper(self)
 
-        self.base_url = base_url
+        self.config = config
+
+        self.base_url = config["web"]["baseUrl"]
                                                     #driver wird ein einziges Mal inizilisiert bei der Erschaffung einer Fixture.
                                                     #ein Helper übernimmt einen Link auf ein Objekt der Klasse Application
                                                     #was uns die Möglichkeit gibt über einen Helper uns zu anderem wenden
+        self.signup= SignupHelper(self)
 
-
+        self.mail = MailHelper(self)
 
 
     def is_valid(self):

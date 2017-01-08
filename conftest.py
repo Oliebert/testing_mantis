@@ -31,7 +31,7 @@ def app(request, config):
     browser = request.config.getoption("--browser")                   # получаем доступ к сохраненному параметру browser
 
     if fixture is None or not fixture.is_valid():                                   # случай если фикстура не определена
-        fixture = Application(browser=browser, base_url=config['web']['baseUrl'])                              # или не валидна
+        fixture = Application(browser=browser, config=config)  # передаем всю конф целиком              # или не валидна
  #   fixture.session.ensure_login(username=web_config['username'], password=web_config['password'])
     return fixture
 

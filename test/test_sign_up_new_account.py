@@ -2,7 +2,7 @@ import string
 import random
 
 def random_string(prefix, maxlen): # функция генерирующая случайные строки
-    symbols=string.ascii_uppercase + string.ascii_lowercase + string.digits #+ ""*10 #+ string.punctuation
+    symbols = string.ascii_letters#symbols=string.ascii_uppercase + string.ascii_lowercase + string.digits #+ ""*10 #+ string.punctuation
     return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))]) # сгенерирована случайная длина символов не привышающая максимальную
 
 def test_sign_up_new_account(app):

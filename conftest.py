@@ -32,7 +32,7 @@ def app(request, config):
 
     if fixture is None or not fixture.is_valid():                                   # случай если фикстура не определена
         fixture = Application(browser=browser, config=config)  # передаем всю конф целиком              # или не валидна
- #   fixture.session.ensure_login(username=web_config['username'], password=web_config['password'])
+ # fixture.session.ensure_login(username=web_config['username'], password=web_config['password'])
     return fixture
 
 @pytest.fixture(scope="session", autouse=True)

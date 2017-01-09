@@ -6,7 +6,7 @@ def test_login(app):
     app.session.login("administrator", "root")
     assert app.session.is_logged_in_as("administrator")
 
-'''def test_add_project(app):
+def test_add_project(app):
 
     old_projects = app.project.get_projects_list()
     project = Project(name=random_string(5), description=random_string(10))
@@ -29,6 +29,6 @@ def test_del_project(app):
 def random_string( maxlen): # функция генерирующая случайные строки
     symbols=string.ascii_uppercase + string.ascii_lowercase + string.digits #+ ""*10 #+ string.punctuation
     return "".join([random.choice(symbols) for i in range(random.randrange(maxlen))]) # сгенерирована случайная длина символов не привышающая максимальную
-'''
+
 
 

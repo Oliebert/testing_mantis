@@ -9,7 +9,7 @@ class ProjectHelper:
     def open_project_page(self):
         wd = self.app.wd
         #if not (wd.current_url.endswith("/manage_proj_page.php")):
-        wd.find_element_by_link_text("Verwaltung").click()
+        wd.find_element_by_link_text("Manage").click()
         wd.find_element_by_xpath("//div/div[4]/div[1]/ul/li[2]/a").click()
 
     def create_project(self, project):

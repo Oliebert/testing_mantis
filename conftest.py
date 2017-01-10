@@ -6,6 +6,7 @@ import importlib
 import json
 #from fixture.db import DbFixture
 import ftputil
+#from fixture.soap import SoapFixture
 
 
 fixture = None                                                                                   #фикстура не определена
@@ -34,7 +35,7 @@ def app(request, config):
         fixture = Application(browser=browser, config=config)  # передаем всю конф целиком              # или не валидна
  # fixture.session.ensure_login(username=web_config['username'], password=web_config['password'])
     return fixture
-
+'''
 @pytest.fixture(scope="session", autouse=True)
 def configure_server(request, config):
     install_server_configuration(config["ftp"]["host"], config["ftp"]["username"], config["ftp"]["password"])# по протоколлу ftp подкладываем нужный конфигурационный файл на сервер
@@ -64,7 +65,7 @@ def check_ui(request):
     return request.config.getoption("--check_ui")
 
 
-'''
+
 @pytest.fixture(scope="session") # фикстура для загрузки базы данных
 def db(request):
     db_config = load_config(request.config.getoption("--target"))['db']
@@ -111,3 +112,10 @@ def load_from_json(file):
 
 def load_from_module(module):
     return importlib.import_module("data.%s" % module).testdata # или ('.' + <имя модуля>, имя данных)
+
+
+'''@pytest.fixture(scope="session")
+def soap(config):
+    soap_fixture = SoapFixture(username=config["webadmin"]["username"], password=config["webadmin"]["password"])
+    return soap_fixture
+'''

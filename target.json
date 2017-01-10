@@ -1,5 +1,5 @@
 {  "web": {
-  "baseUrl": "http://localhost/mantis_1.3.4_/"
+  "baseUrl": "http://mantis.stqa.ru/"
 
           },
   "webadmin": {
@@ -7,7 +7,7 @@
   "username": "administrator",
   "password": "root"
           },
-  "ftp":
+   "ftp":
      {
     "host": "localhost",
     "username": "mantis",
@@ -20,4 +20,8 @@
     "password":"root"
   }
 }
+
+
+
+
 

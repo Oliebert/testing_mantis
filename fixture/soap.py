@@ -6,7 +6,7 @@ class SoapHelper:
         self.app = app
 
     def can_login(self, username, password):
-        client = Client()
+        client = Client("http://mantis.stqa.ru/api/soap/mantisconnect.php?wsdl")
         try:
             client.service.mc_login(username, password)
         except WebFault:

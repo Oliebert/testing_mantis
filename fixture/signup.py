@@ -13,13 +13,13 @@ class SignupHelper:
         wd.find_element_by_name("email").send_keys(email)
         wd.find_element_by_css_selector('input[type="submit"]').click()
 
-        mail = self.app.mail.get_mail(username, password,"[MantisBT] Konto registrierung")
+        mail = self.app.mail.get_mail(username, password,"[MantisBT] Konto Registrierung")
         url = self.extract_confirmation_url(quopri.decodestring(mail).decode()) # извлекаем ссылку для подтверждения из письма
 
         wd.get(url)
         wd.find_element_by_name("password").send_keys(password)
         wd.find_element_by_name("password_confirm").send_keys(password)
-        wd.find_element_by_css_selector('input[value="Update User"]').click()
+        wd.find_element_by_css_selector("input.button").click()
 
     def extract_confirmation_url(self, text):
         return re.search("http://.*$", text, re.MULTILINE).group(0) # в текте письма ищем ссылку начинающуюся с http:// и до конца строки .*$

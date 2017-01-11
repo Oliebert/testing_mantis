@@ -16,6 +16,7 @@ class SoapHelper:
 
     def get_list_of_projects(self):
         client = Client("http://mantis.stqa.ru/api/soap/mantisconnect.php?wsdl")
+        projects = client.service.mc_projects_get_user_accessible("administrator", "root")
         #Get the list of projects that are accessible to the logged in user.
         project_list = []
         for project in projects:
